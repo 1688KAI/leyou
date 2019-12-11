@@ -9,20 +9,22 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.leyou.parent</groupId>
-    <artifactId>ly-gateway</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <groupId>com.leyou.common</groupId>
+    <artifactId>ly-common</artifactId>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
-        <!--是springboot提供的微服务检测接口，默认对外提供几个接口：/info-->
-
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.10.1</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
-
 </project>
