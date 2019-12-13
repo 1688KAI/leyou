@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum  ExceptionEnum{
     BRAND_NOT_FOND(HttpStatus.NOT_FOUND.value(), "品牌不存在"),
+    PICTURE_FORMAT_ERROR(HttpStatus.NOT_FOUND.value(), "品牌不存在"),
     CATEGORY_NOT_FOND(HttpStatus.NOT_FOUND.value(), "商品没有找到"),;
 
     private int code;

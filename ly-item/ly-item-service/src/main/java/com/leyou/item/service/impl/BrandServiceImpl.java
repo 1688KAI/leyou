@@ -2,15 +2,16 @@ package com.leyou.item.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.leyou.common.enums.ExceptionEnum;
-import com.leyou.common.exception.LyException;
-import com.leyou.common.vo.PageResult;
 import com.leyou.item.mapper.BrandMapper;
 import com.leyou.item.pojo.Brand;
 import com.leyou.item.service.BrandService;
+import com.leyou.common.enums.ExceptionEnum;
+import com.leyou.common.exception.LyException;
+import com.leyou.common.vo.PageResult;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
@@ -24,8 +25,6 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public PageResult<Brand> queryBrandByPage(Integer page, Integer rows, String sortBy, Boolean desc, String key) {
-
-
         PageHelper.startPage(page, rows);
         Example example = new Example(Brand.class);
         //过滤
@@ -46,5 +45,17 @@ public class BrandServiceImpl implements BrandService {
         //解析分页结果
         PageInfo<Brand> info = new PageInfo<>(list);
         return new PageResult<>(info.getTotal(), list);
+    }
+
+    @Override
+    @Transactional
+    public void saveBrand(Brand brand, List<Long> cids) {
+        brand.setId(null);
+        //新增品牌信息
+        brandMapper.insert(brand);
+        for (Long cid : cids) {
+            //新增品牌和分类中间表
+            this.brandMapper.insertCategoryBrand(cid, brand.getId());
+        }
     }
 }
