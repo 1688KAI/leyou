@@ -1,6 +1,6 @@
 package com.leyou.item.service.impl;
 
-import com.leyou.item.pojo.Category;
+import com.leyou.service.pojo.Category;
 import com.leyou.item.service.CategoryService;
 import com.leyou.common.enums.ExceptionEnum;
 import com.leyou.common.exception.LyException;

@@ -1,6 +1,6 @@
 package com.leyou.item.web;
 
-import com.leyou.item.pojo.Brand;
+import com.leyou.service.pojo.Brand;
 import com.leyou.common.vo.PageResult;
 import com.leyou.item.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;

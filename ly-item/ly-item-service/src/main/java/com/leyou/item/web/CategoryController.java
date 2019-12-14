@@ -1,6 +1,6 @@
 package com.leyou.item.web;
 
-import com.leyou.item.pojo.Category;
+import com.leyou.service.pojo.Category;
 import com.leyou.item.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

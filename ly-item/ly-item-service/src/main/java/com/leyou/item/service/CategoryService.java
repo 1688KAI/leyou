@@ -1,6 +1,6 @@
 package com.leyou.item.service;
 
-import com.leyou.item.pojo.Category;
+import com.leyou.service.pojo.Category;
 
 import java.util.Collection;
 

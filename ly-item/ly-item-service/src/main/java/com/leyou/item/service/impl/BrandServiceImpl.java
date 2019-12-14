@@ -3,7 +3,7 @@ package com.leyou.item.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.leyou.item.mapper.BrandMapper;
-import com.leyou.item.pojo.Brand;
+import com.leyou.service.pojo.Brand;
 import com.leyou.item.service.BrandService;
 import com.leyou.common.enums.ExceptionEnum;
 import com.leyou.common.exception.LyException;
