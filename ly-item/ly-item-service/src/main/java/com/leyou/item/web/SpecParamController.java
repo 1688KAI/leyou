@@ -18,14 +18,18 @@ public class SpecParamController {
     SpecParamService specParamService;
 
     /**
-     * 查询规格模板中某一组的规格参数
      *
-     * @param gid
+     * @param gid  规格组di
+     * @param cid   分类id
+     * @param searching 是否搜索
      * @return
      */
     @GetMapping("params")
-    public ResponseEntity<List<SpecParam>> querySpecParamByGid(@RequestParam("gid") Long gid){
-        return ResponseEntity.ok(specParamService.querySpecParamByGid(gid));
+    public ResponseEntity<List<SpecParam>> querySpecParamList(
+            @RequestParam(value = "gid",required = false) Long gid,
+            @RequestParam(value = "cid",required = false) Long cid,
+            @RequestParam(value = "searching",required = false) Boolean searching){
+        return ResponseEntity.ok(specParamService.querySpecParamList(gid));
     }
 
 

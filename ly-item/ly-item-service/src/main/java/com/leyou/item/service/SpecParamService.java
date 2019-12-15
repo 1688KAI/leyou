@@ -13,4 +13,5 @@ public interface SpecParamService {
 
     void deleteSpecParam(Long paramId);
 
+    List<SpecParam>  querySpecParamList(Long gid);
 }

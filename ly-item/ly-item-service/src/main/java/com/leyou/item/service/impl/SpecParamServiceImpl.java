@@ -47,4 +47,15 @@ public class SpecParamServiceImpl implements SpecParamService {
         specParamMapper.deleteByPrimaryKey(paramId);
 
     }
+
+    @Override
+    public List<SpecParam> querySpecParamList(Long gid) {
+        SpecParam specParam = new SpecParam();
+        specParam.setGroupId(gid);
+        List<SpecParam> list = specParamMapper.select(specParam);
+        if(CollectionUtils.isEmpty(list)){
+            throw new LyException(ExceptionEnum.SPEC_PARAM_NOT_FOUND);
+        }
+        return list;
+    }
 }

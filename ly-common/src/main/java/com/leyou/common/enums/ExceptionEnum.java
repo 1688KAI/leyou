@@ -14,6 +14,7 @@ public enum  ExceptionEnum{
     CATEGORY_NOT_FOND(HttpStatus.NOT_FOUND.value(), "商品没有找到"),
     SPEC_GROUP_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "规格参数组不存在"),
     SPEC_PARAM_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "规格参数不存在"),
+    GOODS_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "商品不存在"),
     ;
 
     private int code;

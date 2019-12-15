@@ -58,4 +58,22 @@ public class BrandServiceImpl implements BrandService {
             this.brandMapper.insertCategoryBrand(cid, brand.getId());
         }
     }
+
+    @Override
+    public List<Brand> queryByBrandByCid(Long cid) {
+        List<Brand> list = brandMapper.queryByBrandByCid(cid);
+        if (CollectionUtils.isEmpty(list)) {
+            throw new LyException(ExceptionEnum.CATEGORY_NOT_FOND);
+        }
+        return list;
+    }
+
+    @Override
+    public Brand getBrandById(Long id) {
+        Brand brand = brandMapper.selectByPrimaryKey(id);
+        if (null==brand) {
+            throw new LyException(ExceptionEnum.CATEGORY_NOT_FOND);
+        }
+        return brand;
+    }
 }
