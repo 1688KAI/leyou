@@ -17,19 +17,24 @@ public class SpecParamController {
     @Autowired
     SpecParamService specParamService;
 
+
     /**
      *
-     * @param gid  规格组di
-     * @param cid   分类id
+     * @param gid 组ID
+     * @param cid 分类ID
      * @param searching 是否搜索
+     * @param generic
      * @return
      */
     @GetMapping("params")
-    public ResponseEntity<List<SpecParam>> querySpecParamList(
-            @RequestParam(value = "gid",required = false) Long gid,
-            @RequestParam(value = "cid",required = false) Long cid,
-            @RequestParam(value = "searching",required = false) Boolean searching){
-        return ResponseEntity.ok(specParamService.querySpecParamList(gid));
+    public ResponseEntity<List<SpecParam>> queryParamList(@RequestParam(value = "gid", required = false) Long gid,
+                                                          @RequestParam(value = "cid", required = false) Long cid,
+                                                          @RequestParam(value = "searching", required = false) Boolean searching) {
+        List<SpecParam> specParams = specParamService.queryParamList(gid, cid,searching);
+        if (specParams.size() == 0 || specParams == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return ResponseEntity.ok(specParams);
     }
 
 
@@ -69,5 +74,6 @@ public class SpecParamController {
         specParamService.deleteSpecParam(paramId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 
 }

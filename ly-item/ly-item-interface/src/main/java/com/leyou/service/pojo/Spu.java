@@ -6,10 +6,11 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "tb_spu")
 @Data
-public class Spu implements Serializable{
+public class Spu implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,5 +31,11 @@ public class Spu implements Serializable{
     private String cname;
     @Transient
     private String bname;
+
+    @Transient
+    SpuDetail spuDetail;// 商品详情
+    @Transient
+    List<Sku> skus;// sku列表
+
 
 }
