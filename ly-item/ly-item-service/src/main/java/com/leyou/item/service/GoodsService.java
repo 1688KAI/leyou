@@ -1,9 +1,9 @@
 package com.leyou.item.service;
 
 import com.leyou.common.vo.PageResult;
-import com.leyou.service.pojo.Sku;
-import com.leyou.service.pojo.Spu;
-import com.leyou.service.pojo.SpuDetail;
+import com.leyou.item.pojo.Sku;
+import com.leyou.item.pojo.Spu;
+import com.leyou.item.pojo.SpuDetail;
 
 import java.util.List;
 
@@ -22,4 +22,6 @@ public interface GoodsService {
     void updateGoods(Spu spu);
 
     void deleteGoods(Spu spu);
+
+    Spu querySpuById(Long id);
 }

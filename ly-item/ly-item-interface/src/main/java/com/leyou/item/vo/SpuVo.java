@@ -1,6 +1,5 @@
-package com.leyou.service.vo;
+package com.leyou.item.vo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.GeneratedValue;

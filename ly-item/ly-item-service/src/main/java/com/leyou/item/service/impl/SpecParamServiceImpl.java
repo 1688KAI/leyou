@@ -4,7 +4,7 @@ import com.leyou.common.enums.ExceptionEnum;
 import com.leyou.common.exception.LyException;
 import com.leyou.item.mapper.SpecParamMapper;
 import com.leyou.item.service.SpecParamService;
-import com.leyou.service.pojo.SpecParam;
+import com.leyou.item.pojo.SpecParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

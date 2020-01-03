@@ -1,4 +1,4 @@
-package com.leyou.service;
+package com.leyou.item;
 
 import org.springframework.web.multipart.MultipartFile;
 

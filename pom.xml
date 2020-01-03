@@ -13,6 +13,9 @@
         <module>ly-item</module>
         <module>ly-common</module>
         <module>ly-upload</module>
+        <module>leyou-search</module>
+        <module>ly-search</module>
+        <module>ly-page</module>
     </modules>
     <packaging>pom</packaging>
     <name>leyou</name>

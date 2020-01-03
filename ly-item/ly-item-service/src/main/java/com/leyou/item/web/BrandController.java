@@ -1,6 +1,6 @@
 package com.leyou.item.web;
 
-import com.leyou.service.pojo.Brand;
+import com.leyou.item.pojo.Brand;
 import com.leyou.common.vo.PageResult;
 import com.leyou.item.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,7 @@ public class BrandController {
 
     /**
      * 分页显示商品分类
+     *
      * @param page
      * @param rows
      * @param sortBy
@@ -39,6 +40,7 @@ public class BrandController {
 
     /**
      * 新增品牌
+     *
      * @param brand
      * @return
      */
@@ -49,8 +51,30 @@ public class BrandController {
     }
 
 
+    /**
+     * 根据cid 查询商品
+     *
+     * @param cid
+     * @return
+     */
     @GetMapping("cid/{cid}")
     public ResponseEntity<List<Brand>> queryByBrandByCid(@PathVariable Long cid) {
         return ResponseEntity.ok(brandService.queryByBrandByCid(cid));
+    }
+
+
+    /**
+     * 根据id查询品牌
+     * @param id
+     * @return
+     */
+    @GetMapping("{id}")
+    public ResponseEntity<Brand> queryBrandById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(this.brandService.getBrandById(id));
+    }
+
+    @GetMapping("/list")
+    ResponseEntity<List<Brand>> queryBrandByIds(@RequestParam("ids") List<Long> ids){
+        return ResponseEntity.ok(this.brandService.queryBrandByIds(ids));
     }
 }

@@ -1,6 +1,6 @@
 package com.leyou.item.service;
 
-import com.leyou.service.pojo.SpecGroup;
+import com.leyou.item.pojo.SpecGroup;
 
 import java.util.List;
 
@@ -12,4 +12,6 @@ public interface SepcGroupService {
     void updateSpecGroup(SpecGroup specGroup);
 
     void deleteSpecGroup(Long id);
+
+    List<SpecGroup> queryListByCid(Long cid);
 }

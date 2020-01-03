@@ -1,4 +1,4 @@
-package com.leyou.service.pojo;
+package com.leyou.item.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

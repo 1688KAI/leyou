@@ -10,7 +10,7 @@ import com.leyou.item.mapper.SkuMapper;
 import com.leyou.item.mapper.SpuDetailMapper;
 import com.leyou.item.mapper.StockMapper;
 import com.leyou.item.service.*;
-import com.leyou.service.pojo.*;
+import com.leyou.item.pojo.*;
 import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -177,6 +177,20 @@ public class GoodsServiceImpl implements GoodsService {
         if (row != 1) {
             throw new LyException(ExceptionEnum.DELETE_GOODS_ERROR);
         }
+    }
+
+    @Override
+    public Spu querySpuById(Long id) {
+        //查询spu
+        Spu spu = this.goodsMapper.selectByPrimaryKey(id);
+        if (spu == null) {
+            throw new LyException(ExceptionEnum.GOODS_NOT_FOUND);
+        }
+        //查询sku
+        spu.setSkus(querySkuBySpuId(id));
+        //查询detail
+        spu.setSpuDetail(querySpuDetailById(id));
+        return spu;
     }
 
 

@@ -1,6 +1,6 @@
 package com.leyou.item.web;
 
-import com.leyou.service.pojo.SpecGroup;
+import com.leyou.item.pojo.SpecGroup;
 import com.leyou.item.service.SepcGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -65,4 +65,10 @@ public class SpecGroupController {
         sepcGroupService.deleteSpecGroup(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/group")
+   ResponseEntity< List<SpecGroup> > queryListByCid(@RequestParam("cid") Long cid){
+        return ResponseEntity.ok(this.sepcGroupService.queryListByCid(cid));
+    }
+
 }

@@ -3,7 +3,7 @@ package com.leyou.item.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.leyou.item.mapper.BrandMapper;
-import com.leyou.service.pojo.Brand;
+import com.leyou.item.pojo.Brand;
 import com.leyou.item.service.BrandService;
 import com.leyou.common.enums.ExceptionEnum;
 import com.leyou.common.exception.LyException;
@@ -71,9 +71,18 @@ public class BrandServiceImpl implements BrandService {
     @Override
     public Brand getBrandById(Long id) {
         Brand brand = brandMapper.selectByPrimaryKey(id);
-        if (null==brand) {
+        if (null == brand) {
             throw new LyException(ExceptionEnum.CATEGORY_NOT_FOND);
         }
         return brand;
+    }
+
+    @Override
+    public List<Brand> queryBrandByIds(List<Long> ids) {
+        List<Brand> list = this.brandMapper.selectByIdList(ids);
+        if (CollectionUtils.isEmpty(list)) {
+            throw new LyException(ExceptionEnum.CATEGORY_NOT_FOND);
+        }
+        return list;
     }
 }

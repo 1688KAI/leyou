@@ -1,11 +1,9 @@
-package com.leyou.service.pojo;
+package com.leyou.item.pojo;
 
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Table(name = "tb_spec_group")
@@ -19,4 +17,6 @@ public class SpecGroup {
 
     private String name;
 
+    @Transient
+    private List<SpecParam> params;
 }

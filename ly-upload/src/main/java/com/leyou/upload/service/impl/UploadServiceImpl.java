@@ -1,11 +1,11 @@
-package com.leyou.service.impl;
+package com.leyou.item.impl;
 
 import com.github.tobato.fastdfs.domain.StorePath;
 import com.github.tobato.fastdfs.service.FastFileStorageClient;
 import com.leyou.common.enums.ExceptionEnum;
 import com.leyou.common.exception.LyException;
 import com.leyou.config.UploadProperties;
-import com.leyou.service.UploadService;
+import com.leyou.item.UploadService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
